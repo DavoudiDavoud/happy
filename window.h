@@ -43,8 +43,8 @@ private:
 	static const int plotDataSize = 1000;
 
 	// data arrays for the plot
-	double xData[plotDataSize];
-	double yData[plotDataSize];
+	int xData[plotDataSize];
+	int yData[plotDataSize];
 
         double func;
 	int count;
