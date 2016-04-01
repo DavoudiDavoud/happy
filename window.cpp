@@ -77,14 +77,12 @@ Window::~Window() {
 void Window::timerEvent( QTimerEvent * )
 {
 	int inval;
-	double value;
 	while(adcreader->read_enable()){
 				
 		inval=adcreader->get_samples();
-		value=(double) inval;
 		// add the new input to the plot
 		memmove( yData, yData+1, (plotDataSize-1) * sizeof(double) );
-		yData[plotDataSize-1] = value;
+		yData[plotDataSize-1] = inval;
 		curve->setSamples(xData, yData, plotDataSize);
 		plot->replot();
 	}
